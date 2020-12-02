@@ -1,20 +1,69 @@
 <template>
   <div id="app">
-
-    <HelloWorld/>
+    <div class="header">
+      <Header />
+    </div>
+    <div class="content">
+      <Main  />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "./components/Header.vue";
+import Main from "./components/Main.vue";
+
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    Header,
+    Main,
+  },
+  data() {
+    return {
+    
+    }
   }
-}
+};
 </script>
 
-<style lang="stylus">
+<style lang="scss">
+@font-face {
+  font-family: "Roboto"; /* Имя шрифта */
+  src: url("./../public/fonts/Roboto/Roboto-Medium.ttf"); /* Путь к файлу со шрифтом */
+}
+
+body,
+html,
+div,
+p {
+  margin: 0;
+  padding: 0;
+}
+h2 {
+  font-family: "Roboto";
+}
+span {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 30px;
+}
+body {
+  font-weight: 500;
+  color: #353d54;
+  font-size: 30px;
+  line-height: 36px;
+  font-family: Roboto;
+
+  .header {
+    background-color: #f0f1f4;
+  }
+}
+
+.container {
+  width: 80%;
+  margin: 0 307px;
+}
 </style>
