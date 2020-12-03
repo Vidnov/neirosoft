@@ -63,7 +63,7 @@ body {
 }
 
 .container {
-  width: 80%;
-  margin: 0 307px;
+       width: 80%;
+    margin: 0 312px
 }
 </style>

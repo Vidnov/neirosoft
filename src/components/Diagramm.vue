@@ -7,13 +7,18 @@ export default {
   components: {},
   data() {
     return {
+      
       options: {
+        tooltipTemplate:"123",
         responsive: true,
         maintainAspectRatio: false,
+        tooltips: {
+              mode: 'point'
+        },
         layout: {
           padding: {
-            left: -430,
-            right: 0,
+            left: -200,
+            right: 100,
             top: 0,
             bottom: 0,
           },
@@ -24,7 +29,10 @@ export default {
             pointStyle: "circle",
           },
         },
-        title: {},
+        title: {
+          display: false,
+          text: "По департаментам",
+        },
         legend: {
           align: "center",
           position: "right",
@@ -51,6 +59,9 @@ export default {
             label: this._props.departments,
             backgroundColor: this._props.color,
             data: this._props.employees,
+            borderWidth: 0,
+
+            cutoutPercentage: true,
           },
         ],
         options: {

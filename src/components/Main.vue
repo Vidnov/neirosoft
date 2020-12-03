@@ -18,23 +18,28 @@
         <span>Пар</span>
       </div>
     </div>
-    <div>
+    <section>
       <DiagrammBlock
         v-if="loader"
         v-bind:employees="employees"
         v-bind:departments_title="departments_title"
       />
-    </div>
+    </section>
+    <section>
+      <Footer />
+    </section>
   </div>
 </template>
 
 <script>
 import DiagrammBlock from "./../components/Diagramm_block.vue";
 import dataStatistic from "./../../test.json";
+import Footer from "./../components/Footer";
 export default {
   name: "Header",
   components: {
     DiagrammBlock,
+    Footer,
   },
   data() {
     return {
@@ -42,7 +47,7 @@ export default {
       Statistic: "",
       departments: [],
       employees: [],
-      departments_title:[]
+      departments_title: [],
     };
   },
   async mounted() {
