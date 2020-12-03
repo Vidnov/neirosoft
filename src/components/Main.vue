@@ -2,24 +2,28 @@
   <div class="main">
     <div class="choise container">
       <div>
-        <h2>{{Statistic.total}}</h2>
+        <h2>{{ Statistic.total }}</h2>
         <span>Сотрудников в штате</span>
       </div>
       <div>
-        <h2>{{Statistic.males}}</h2>
+        <h2>{{ Statistic.males }}</h2>
         <span>Мужчины</span>
       </div>
       <div>
-        <h2>{{Statistic.females}}</h2>
+        <h2>{{ Statistic.females }}</h2>
         <span>Женщин</span>
       </div>
       <div>
-        <h2>{{Statistic.couples}}</h2>
+        <h2>{{ Statistic.couples }}</h2>
         <span>Пар</span>
       </div>
     </div>
     <div>
-      <DiagrammBlock v-bind:departments='departments'/>
+      <DiagrammBlock
+        v-if="loader"
+        v-bind:employees="employees"
+        v-bind:departments_title="departments_title"
+      />
     </div>
   </div>
 </template>
@@ -34,13 +38,26 @@ export default {
   },
   data() {
     return {
-      Statistic: '',
-      departments:[]
+      loader: false,
+      Statistic: "",
+      departments: [],
+      employees: [],
+      departments_title:[]
     };
   },
-  mounted() {
-    this.Statistic=dataStatistic.data
-    this.departments=dataStatistic.data.departments
+  async mounted() {
+    this.loaded = false;
+    try {
+      this.Statistic = dataStatistic.data;
+      this.departments = dataStatistic.data.departments;
+      this.loader = true;
+      this.employees = this.departments.map((item) => {
+        return item.employees;
+      });
+      this.departments_title = this.departments.map((item) => {
+        return item.title;
+      });
+    } catch {}
   },
   props: ["dataStatistic"],
 };

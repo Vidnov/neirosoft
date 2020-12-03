@@ -1,25 +1,31 @@
-<script>
-import VueChartJs from 'vue-chartjs';
-export default {
 
+<script>
+import VueChartJs from "vue-chartjs";
+//const { reactiveProp } = VueChartJs.mixins;
+export default {
   name: "Diagramm",
   extends: VueChartJs.Doughnut,
   components: {},
-    mounted () {
-    this.renderChart({
-      labels: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-      datasets: [
-        {
-          label: 'Коммиты на GitHub',
-          backgroundColor: ['#2B78FE','#8295FA'],
-          data: [3, 54, 13, 22, 69, 5]
-        }
-      ]
-    }, {responsive: true, maintainAspectRatio: false})
-  }
+ 
+  props: ["departments","employees","color"],
+
+  mounted() {
+    this.renderChart(
+      {
+       labels: '',
+        datasets: [
+          {
+            label: this._props.employees,
+            backgroundColor: this._props.color,
+            data: this._props.employees,
+          },
+        ],
+      },
+      { responsive: true, maintainAspectRatio: true }
+    );
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-
 </style>
