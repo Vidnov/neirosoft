@@ -1,14 +1,13 @@
 <template>
-  <div class="diagramm-container container">
+  <div class="container">
     <p>По департаментам</p>
-
     <div id="diagramma">
       <Diagramm
         v-bind:departments="departments_title"
         v-bind:employees="employees"
         v-bind:color="color"
       />
-      <div class="logo">
+      <!-- <div class="logo">
         <svg
           width="160"
           height="160"
@@ -35,7 +34,7 @@
             fill="#E83F44"
           />
         </svg>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -80,13 +79,22 @@ export default {
 }
 #diagramma {
   display: grid;
-  position: relative;
-  // border: 1px solid black;
-  margin-left: 0;
+   margin-left: 0;
+
   margin-top: 68px;
   padding: 0;
   height: 609px;
   grid-template-columns: auto;
   margin-bottom: 103px;
+
+  // display: grid;
+
+  // position: absolute;
+  // width: 1000px;
+  // height: 1000px;
+  // /* padding: 0; */
+  // /* height: 609px; */
+  // /* grid-template-columns: auto; */
+  // /* margin-bottom: 1000px; */
 }
 </style>

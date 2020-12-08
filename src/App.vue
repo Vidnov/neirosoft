@@ -1,24 +1,28 @@
 <template>
   <div id="app">
-    <div class="header">
+    <section class="header">
       <Header />
-    </div>
-    <div class="content">
+    </section>
+    <section class="content">
       <Main  />
-    </div>
+    </section>
+    <section class="footer">
+      <Footer />
+    </section>
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
 import Main from "./components/Main.vue";
-
+import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
   components: {
     Header,
     Main,
+    Footer
   },
   data() {
     return {

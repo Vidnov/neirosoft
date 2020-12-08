@@ -25,21 +25,17 @@
         v-bind:departments_title="departments_title"
       />
     </section>
-    <section>
-      <Footer />
-    </section>
   </div>
 </template>
 
 <script>
 import DiagrammBlock from "./../components/Diagramm_block.vue";
 import dataStatistic from "./../../test.json";
-import Footer from "./../components/Footer";
+
 export default {
   name: "Header",
   components: {
-    DiagrammBlock,
-    Footer,
+    DiagrammBlock
   },
   data() {
     return {
@@ -71,6 +67,7 @@ export default {
 <style lang="scss" scoped>
 .main {
   margin-top: 33px;
+
   .choise {
     display: grid;
     grid-template-columns: 169px 169px 169px 169px;

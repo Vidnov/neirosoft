@@ -1,27 +1,27 @@
 
 <script>
-import VueChartJs from "vue-chartjs";
+import {Doughnut} from "vue-chartjs";
 export default {
   name: "Diagramm",
-  extends: VueChartJs.Doughnut,
+  extends: Doughnut,
   components: {},
   data() {
     return {
-      
       options: {
-        tooltipTemplate:"123",
         responsive: true,
         maintainAspectRatio: false,
         tooltips: {
-              mode: 'point'
+          mode: "point",
         },
+        hover: { intersect: true },
         layout: {
           padding: {
             left: -200,
             right: 100,
             top: 0,
             bottom: 0,
-          },
+          }
+          
         },
         elements: {
           point: {
@@ -60,7 +60,6 @@ export default {
             backgroundColor: this._props.color,
             data: this._props.employees,
             borderWidth: 0,
-
             cutoutPercentage: true,
           },
         ],
@@ -77,7 +76,5 @@ export default {
 </script>
 
 <style lang="scss" >
-.chartjs-size-monitor-shrink {
-  background-color: black;
-}
+
 </style>
